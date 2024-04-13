@@ -1,0 +1,219 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>威海市旅游数据概览</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/echarts.min.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script src="js/swiper.min.js"></script>
+ <link rel="stylesheet" href="css/swiper.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="head clearfix">
+		<div class="home"><a href='/首页/guidance.html'><img src="images/Home.png" width="28"> <i> 首页</i></a></div>
+	<div class="menu menu1 pulll_left">
+		<ul>
+			<li><a>&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+			<li class="kobe"><a>&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+
+		</ul>
+		</div>
+	<h1 class="pulll_left">&nbsp;&nbsp;&nbsp;&nbsp;威海市旅游数据概览</h1>
+		<div class="menu menu2 pulll_left">
+		<ul>
+			<li class='bryant'><a>&nbsp;&nbsp;&nbsp;&nbsp; </a></li>
+			<li ><a >&nbsp;&nbsp;</a></li>
+		</ul>
+		</div>
+		
+		<div class="time" id="showTime">2018/6/12 17:00:12</div>
+		<script>
+var t = null;
+    t = setTimeout(time,1000);//開始运行
+    function time()
+    {
+       clearTimeout(t);//清除定时器
+       dt = new Date();
+		var y=dt.getFullYear();
+		var mt=dt.getMonth()+1;
+		var day=dt.getDate();
+       var h=dt.getHours();//获取时
+       var m=dt.getMinutes();//获取分
+       var s=dt.getSeconds();//获取秒
+       document.getElementById("showTime").innerHTML = y+"/"+mt+"/"+day+" "+h+":"+m+":"+s+"";
+       t = setTimeout(time,1000); //设定定时器，循环运行     
+    } 
+
+</script>
+	</div>
+	<div class="mainbox">
+	
+	<ul class="clearfix nav1">
+		<li style="width: 25%">
+		<div class="box">
+			<div class="tit">主要景点地理位置分布</div>
+			<div class="boxnav" id="echart1" style="height: 180px;">
+
+			</div>
+			</div>
+			<div class="box">
+			<div class="tit">历年游客接待量（/万人次）</div>
+			<div class="boxnav" style="height: 510px;" id="echart21">
+			</div>
+			</div>
+			
+			<div class="box">
+
+			<div class="boxnav" id="echart3" style="display: none;">
+				
+			</div>
+			</div>
+		</li>
+		<li style="width: 50%">
+		
+		<div class="box">
+			<div class="boxnav mapc" style="height: 500px; position: relative; padding: 0">
+				
+				
+				
+
+  <!-- Swiper -->
+
+  <div class="swiper-container gallery-top">
+	<div class="mapnav">
+				<ul>
+					<li><div><span>A级旅游景区</span><p>51</p></div></li>
+					<li><div><span>乡村旅游重点村</span><p>98</p></div></li>
+					<li><div><span>旅游度假区</span><p>5</p></div></li>
+					<li><div><span>山东省全域旅游示范区</span><p>3</p></div></li>
+					</ul>
+					
+				</div>
+    <div class="swiper-wrapper">
+		<div class="swiper-slide" style="background-image:url(images/1.jpg)"></div>
+		<div class="swiper-slide" style="background-image:url(images/2.jpg)"></div>
+		<div class="swiper-slide" style="background-image:url(images/3.jpg)"></div>
+		<div class="swiper-slide" style="background-image:url(images/4.jpg)"></div>
+		<div class="swiper-slide" style="background-image:url(images/5.jpg)"></div>
+		<div class="swiper-slide" style="background-image:url(images/6.jpg)"></div>
+      
+   
+		
+    </div>
+
+    <!-- Add Arrows -->
+
+    <div class="swiper-button-next swiper-button-white"></div>
+
+    <div class="swiper-button-prev swiper-button-white"></div>
+
+  </div>
+
+  <div class="swiper-container gallery-thumbs">
+
+    <div class="swiper-wrapper">
+<div class="swiper-slide" style="background-image:url(images/1.jpg)"></div>
+<div class="swiper-slide" style="background-image:url(images/2.jpg)"></div>
+<div class="swiper-slide" style="background-image:url(images/3.jpg)"></div>
+<div class="swiper-slide" style="background-image:url(images/4.jpg)"></div>
+<div class="swiper-slide" style="background-image:url(images/5.jpg)"></div>
+<div class="swiper-slide" style="background-image:url(images/6.jpg)"></div>
+
+    </div>
+
+  </div>
+ <script>
+var galleryThumbs = new Swiper('.gallery-thumbs', {
+	spaceBetween: 0,
+	slidesPerView: 5,
+	freeMode: true,
+	watchSlidesVisibility: true,
+	watchSlidesProgress: true,
+});
+var galleryTop = new Swiper('.gallery-top', {
+	spaceBetween: 10,
+	navigation: {
+		nextEl: '.swiper-button-next',
+		prevEl: '.swiper-button-prev',
+	},
+	thumbs: {
+		swiper: galleryThumbs
+	}
+});
+  </script>		
+			</div>
+			</div>
+		<ul class="nav1">
+			<li style="width: 50%">
+			<div class="box">
+			<div class="tit">近年来接待游客同比增长情况</div>
+			<div class="boxnav" id="echart4" style="height: 250px;">
+				
+			</div>
+			</div>
+			</li>
+			<li style="width: 50%">
+			
+			<div class="box">
+			<div class="tit">近年来旅游消费同比增长情况</div>
+			<div class="boxnav"  id="echart5" style="height: 250px;">
+				
+			</div>
+			</div></li>
+			</ul>
+			
+		</li>
+		<li style="width: 25%">
+		<div class="box">
+			
+			<div class="boxnav"  style="height: 76px;">
+			<div class="weather">
+				<div class="">
+				<div class="wt1">
+					<div class="wt2"><img src="images/weather.png"><p>29<sup>℃</sup></p></div>
+					<span>多云转晴</span>
+					</div>
+					
+				</div>
+				<div class="wt03">
+				<p><span>气温：</span>20 ~ 32℃</p>
+				<p><span>降水量：</span>32毫米</p>
+				<p><span>风况：</span>西北风微风</p>
+				</div>
+				</div>
+			</div>
+			</div>
+		<div class="box">
+			<div class="tit">A级旅游景区级别占比</div>
+			<div class="boxnav" id="echart6" style="height: 170px;"></div>
+			</div>
+			
+			<div class="box">
+			<div class="tit">历年旅游收入变化情况（/亿元）</div>
+			<div class="boxnav" style="height: 430px;" id="echart7"></div>
+			</div>
+		<div class="box">
+
+			<div class="boxnav" style="display: none;">
+			<ul class="gnlb">
+				<li><span>月平均小时：<em>119351</em></span></li>
+				<li><span>月平均小时：<em>119351</em></span></li>
+				<li><span>月平均小时：<em>119351</em></span></li>
+				<li><span>月平均小时：<em>119351</em></span></li>
+				<li><span>月平均小时：<em>119351</em></span></li>
+				<li><span>月平均小时：<em>119351</em></span></li>
+				</ul>
+			
+			</div>
+			</div>
+		</li>
+		</ul>
+		
+		
+		
+		
+	</div>
+</body>
+</html>

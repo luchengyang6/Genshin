@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>旅游行情预测</title>
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;}
+</style>
+</head>
+<body>
+
+	<div class="wrap">
+		<div class="wid_1820">
+
+			<div class="header">
+				<p class="tmtext"></p>
+				<p><span class="hefont">旅游行情预测</span></p>
+			
+			</div>
+				<div class="baner">
+					<h1><a href="../首页/guidance.html">首页</a></h1>
+				</div>
+			<div class="content content1"> <img class="guang">
+				<div class="cznl">
+					<div class="czl">
+						<div class="tb tb_pos">
+							<h3>分类预测</h3>
+							<table class="table1">
+								<tr class="tb_title">
+									<td>项目名称</td>
+									<td>年平均目标</td>
+									<td>最终目标</td>
+								</tr>
+								<tr>
+									<td>游客接待总量同比增长</td>
+									<td>1.5%-1.6%<span class="sheng">↑</span></td>
+									<td>>=70%(2050年)</td>
+								</tr>
+								<tr>
+									<td>旅游业总收入在全市<br>总收入中的占比</td>
+									<td>0.1%-0.2%<span class="sheng">↑</span></td>
+									<td>>=20%(2030年)</td>
+								</tr>
+								<tr>
+									<td>旅游垃圾生产</td>
+									<td>1.1%-1.5%<span class="jiang">↓</span></td>
+									<td><=25%(2030年)</td>
+								</tr>
+								<tr>
+									<td>重点景区容纳量</td>
+									<td>10%-15%<span class="sheng">↑</span></td>
+									<td>25W+(2050年)</td>
+								</tr>
+								<tr>
+									<td>旅游形式更新</td>
+									<td>5%-15%<span class="sheng">↑</span></td>
+									<td>>=95%(2050年)</td>
+								</tr>
+								<tr>
+									<td>基础设施巩固翻新</td>
+									<td>2%-3%<span class="sheng">↑</span></td>
+									<td>>=90%(2035年)</td>
+								</tr>
+							</table>
+						</div>
+
+						<div class="tb tb_pos tb_pos2">
+							<h3>旅游业未来主要发展描绘</h3>
+							<table class="table1">
+								<tr class="tb_title">
+									<td>发展方面</td>
+									<td>发展目标</td>
+								</tr>
+								<tr>
+									<td>交通服务</td>
+									<td>改进城市交通路线,合理规划路线布局</td>
+								</tr>
+								<tr>
+									<td>住宿服务</td>
+									<td>酒店平均品质达3A级</td>
+								</tr>
+								<tr>
+									<td>餐饮服务</td>
+									<td>保证食品健康率达99%</td>
+								</tr>
+								<tr>
+									<td>景点旅游</td>
+									<td>A级景点数量提升20%-30%</td>
+								</tr>
+								<tr>
+									<td>购物场所</td>
+									<td>增至200+所</td>
+								</tr>
+								<tr>
+									<td>文化娱乐</td>
+									<td>文娱普及率达95%+</td>
+								</tr>
+								
+							
+
+							</table>
+						</div>
+
+						<div class="fxzt">
+							<div>
+								<span>A级景区数量预测</span>
+								<ul class="fxztul">
+									<li class="litime"><span></span>时间<p>2020-2060</p></li>
+									<li class="listate"><span></span>发展状态<p>稳定</p></li>
+									<li class="linumber"><span></span>指数值<p>8.62</p></li>
+									<li><div class="baojing"></div></li>
+								</ul>
+							</div>
+						</div>
+						<div id="line1" class="div1 line1"></div>
+						<div style="clear: both;"></div>
+
+						<div class="fxzt">
+							<div>
+								<span>服务完善率预测</span>
+								<ul class="fxztul">
+									<li class="litime"><span></span>时间<p>2017-2050</p></li>
+									<li class="listate"><span></span>转换状态<p>稳定</p></li>
+									<li class="linumber"><span></span>指数值<p>6.33</p></li>
+									<li><div class="baojing"></div></li>
+								</ul>								
+							</div>
+						</div>
+						<div id="line2" class="div1 line1"></div>
+						<div style="clear: both;"></div>
+						<div class="fxzt">
+							<div>
+								<span>游客接待量预测</span>
+								<ul class="fxztul">
+									<li class="litime"><span></span>时间<p>2020-2060</p></li>
+									<li class="listate"><span></span>增加状态<p style="color:yellow">一般</p></li>
+									<li class="linumber"><span></span>指数值<p>2.97</p></li>
+									<li><div class="baojing1"></div></li>
+								</ul>
+							</div>
+						</div>
+						<div id="line3" class="div1 line1"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+<script src="libs/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="libs/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+<script>
+	$(function(){
+		$(".baner a").removeClass("ahover");
+		$(".cznl>div").css("display","none");
+		$(".cznl").css("display","block");
+		var titme1="";
+		$(".czl").css("display","block");
+		var myChart = echarts.init(document.getElementById('line1'));
+		var myChart01 = echarts.init(document.getElementById('line2'));
+		var myChart02 = echarts.init(document.getElementById('line3'));
+      	myChart.setOption(option);
+      	myChart01.setOption(optioncenter);
+      	myChart02.setOption(optionbtm);
+		$(".baner a").click(function(){
+			var chartid = $(this).attr("class");
+		})
+	})
+</script>

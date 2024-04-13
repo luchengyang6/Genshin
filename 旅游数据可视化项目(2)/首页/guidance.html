@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>首页</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-image: url(https://p1.ssl.qhmsg.com/t016c1df1ba2d527042.jpg);
+            background-size: cover;
+            background-color: rgba(0, 0, 0, 0);
+            height: 100vh;
+            overflow: hidden;
+            
+        }
+        button:hover{
+  animation: animate 8s linear infinite;
+}
+@keyframes animate{
+
+  from{
+    background-position: 0%;
+  }
+  to{
+    background-position: 400%;
+  }
+}
+button::before{
+  content: '';
+  position: absolute;
+  inset: -0.0625rem;
+  z-index: -1;
+  background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+  background-size: 400%;
+  border-radius: 40px;
+  opacity: 0;
+}
+a:hover::before{
+  filter: blur(.25rem);
+  opacity: 1;
+  animation: animate 8s linear infinite;
+}
+    </style>
+</head>
+
+<body>
+  <canvas style="position: absolute;top: 0;left: 0;"></canvas>
+      <div class="container">
+        <div class="navbar">
+          <img src="img/SDU.jpg" class="logo" />
+          <nav>
+            <ul>
+              <li><a href="#"></a></li>
+              <li><a style="font-size: larger;">联系我们</a></li>
+              <li><a style="font-size: larger;">邮箱：3088869952@qq.com</a></li>
+
+            </ul>
+          </nav>
+          
+        </div>
+        <div class="row">
+          <div class="col">
+            <h1>威海市旅游数据可视化</h1>
+            <p>
+
+            </p>
+            <button type="button"><a href="https://thingmap.thingjs.com/share/77e18e9c-f3e4-4205-a0d6-987d2e7185cf?name=威海市
+
+              ">Explore</a></button>
+          </div>
+          <div class="col">
+            <div class="card1 card"><a  href="../页面1/index.html">
+              <h5 style="font-size:xx-large">一</h5>
+              <p style="font-size: larger;font-family: Kaiti;">威海市旅游数据概览</p></a>
+            </div>
+            <div class="card2 card"><a href="../页面2/sanlian.html">
+              <h5 style="font-size: xx-large;">二</h5>
+              <p style="font-size: larger;font-family: Kaiti;">游客情况与消费分析</p></a>
+            </div>
+            <div class="card3 card"><a href="../页面3/CarbonDioxide.html">
+              <h5 style="font-size: xx-large;">三</h5>
+              <p style="font-size: larger;font-family: Kaiti;">旅游经营及热点分析</p></a>
+            </div>
+            <div class="card4 card"><a href="../页面4/DataForecast.html">
+              <h5 style="font-size: xx-large;">四</h5>
+              <p style="font-size: larger;font-family: Kaiti;">旅游行情预测</p></a>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+
+
+    <script>
+        let canvas = document.querySelector("canvas");
+        let conttext = canvas.getContext('2d');
+        let w = window.innerWidth;
+        let h = window.innerHeight;
+        canvas.width = w;
+        canvas.height = h;
+
+        let num = 200;
+        let snows = [];
+        for(let i = 0;i < num; i++){
+            snows.push({
+                x:Math.random()*w,
+                y:Math.random()*h,
+                r:Math.random()*10+1
+            });
+        }
+        let move = () => {
+            for(let i = 0; i < num; i++){
+                let snow = snows[i];
+                snow.x += Math.random()*2+1;
+                snow.y += Math.random()*2+1;
+                snow.x = snow.x > w ? 0 : snow.x;
+                snow.y = snow.y > h ? 0 : snow.y;
+            }
+        }
+        let draw = () => {
+            conttext.clearRect(0,0,w,h);
+            conttext.beginPath();
+            conttext.fillStyle = 'rgb(255,255,255)';
+            conttext.shadowColor = 'rgb(255,255,255)';
+            conttext.shadowBlur = 10;
+
+            for(let i = 0; i < num; i++){
+                let snow = snows[i];
+                conttext.moveTo(snow.x,snow.y);
+                conttext.arc(snow.x,snow.y,snow.r,0,Math.PI*2);
+            }
+            conttext.fill();
+            conttext.closePath();
+            move();
+        }
+        draw();
+        setInterval(draw,30);
+    </script>
+</body>
+</html>

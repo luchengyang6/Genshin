@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>旅游经营及热点分析</title>
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;}
+</style>
+
+</head>
+<body>
+
+	<div class="wrap">
+		<div class="wid_1820">
+
+			<div class="header">
+				<p class="tmtext"></p>
+				<p>
+					<span class="hefont">旅游经营及热点分析</span>
+				</p>
+				
+			</div>
+					
+			<div class="baner">
+				<h2><a class="jybt">旅游结构图</a></h2>
+				<h2><a class="wbgl">黄金周</a></h2>
+
+				<h2 ><a href="../首页/guidance.html" class="kobe">首页</a></h2>
+			</div>
+
+			<div class="content content1"> 
+				<p class="ctitle"></p>
+				<div class="cznl">
+
+					<!-- 关键代码 -->
+
+					
+					<div id="pie1" class="echart_div pie1"></div>
+					<div id="pie2" class="echart_div pie2"></div>
+					<div class="piebt piebt1"></div>
+					<div class="piebt piebt2"></div>
+
+
+					
+					<!-- 结构图模块 -->
+					<div id="guanxi" class="echart_div guanxi"></div>
+					<div class="gxlist tb"><h3>相关政策</h3>
+						<div class="sanlianbt"><a href="WordCloud.html">旅游词云图</a></div>
+						<ul>
+							<a href="https://www.weihai.gov.cn/art/2024/1/2/art_59365_4390249.html">
+								<li>威海市文化和旅游局2024年第1次局长办公会议</li>
+							</a>
+							<a href="https://wlj.weihai.gov.cn/art/2020/1/22/art_66424_2260759.html">
+								<li>2018年威海市旅游统计便览</li>
+							</a>
+							<a href="http://data.weihai.gov.cn/weihai/catalog/8a206632b7154bcfae3189965e41e262">
+								<li>威海市旅游节庆活动信息</li>
+							</a>
+							<a href="https://www.whggwly.com/new-56364.html">
+								<li>威海市2022年旅游统计便览</li>
+							</a>
+							<a href="https://www.whggwly.com/new-35192.html">
+								<li>威海市2021年旅游统计便览</li>
+							</a>
+							<a href="http://data.weihai.gov.cn/weihai/catalog/cbf8c3ebde7446868bc1266a2a4a993d">
+								<li>威海市“黄金周”数据公开</li>
+							</a>
+							<a href="https://wlj.weihai.gov.cn/art/2023/4/7/art_13701_4385265.html">
+								<li>威海文旅局2023年度“谁执法、谁普法”工作计划</li>
+							</a>
+							<a href="https://www.weihai.gov.cn/art/2023/6/1/art_103324_27427.html">
+								<li>关于公布 2023年新型公共文化空间名单的通知</li>
+							</a>
+							<a href="https://www.weihai.gov.cn/art/2023/5/23/art_103324_27340.html">
+								<li>全市文旅领域重大事故隐患专项排查整治2023方案</li>
+							</a>
+							<a href="https://www.weihai.gov.cn/art/2023/4/13/art_103324_27150.html">
+								<li>关于印发《A级旅游景区质量提升行动方案》的通知</li>
+							</a>
+							<a href="https://www.weihai.gov.cn/art/2023/6/1/art_103324_27427.html">
+								<li>关于公布 2023年新型公共文化空间名单的通知</li>
+							</a>
+							<a href="https://www.weihai.gov.cn/art/2023/7/11/art_103324_28016.html">
+								<li>威海市文化和旅游局关于开展首批市级地名文化遗产认定工作的通知</li>
+							</a>
+						</ul>
+					</div>
+
+					<!----> 
+					<div class="jydt">
+						<!-- -->
+						<div class="lins1" id = "lins1"></div>						
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+<script src="libs/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="libs/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- 发散图ecahrt -->
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/sanlian.js"></script>
+<script>
+
+	$(function(){
+		var titme1="";
+		
+		$(".baner a").click(function(){
+		
+			$(".baner a").removeClass("ahover");
+			$(".cznl>div").css("display","none");
+			$(".cznl").css("display","block");
+			var chartid = $(this).attr("class");
+
+			if(chartid === "jybt"){
+				$(".ctitle").html("旅游经营结构图");
+				$("#guanxi,.gxlist").css("display","block");
+			}
+			else if(chartid === "wbgl"){
+				$(".jydt").css("display","block");
+				var lins1 = echarts.init(document.getElementById('lins1'));
+				lins1.setOption(option1);
+				$(".ctitle").html("历年黄金周数据统计");
+			}
+			
+			else if(chartid === "kbbt"){
+				$(".ctitle").html("碳交易量、交易额");
+				$("#pie1,.piebt").css("display","block");
+				$("#pie2,.piebt").css("display","block");
+				var myChart2 = echarts.init(document.getElementById('pie1'));
+				var myChart3 = echarts.init(document.getElementById('pie2'));
+      			myChart2.setOption(option2);
+      			myChart3.setOption(option22);
+			}
+			
+			$(this).addClass("ahover");
+			
+			
+		})
+		var address = window.location.href;
+		if(address.split("?")[1] == "1"){
+			$(".wbgl").click();
+			//window.location.href = "index.html";
+			   		var url = window.location.href;
+					url = url.split('?')[0];
+			        window.history.pushState({}, 0, url);
+		}
+		else{
+			$(".baner .jybt").click();
+		}
+		
+	})
+</script>
